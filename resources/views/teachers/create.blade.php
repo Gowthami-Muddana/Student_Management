@@ -3,6 +3,15 @@
 <div class="card">
     <div class="card-header">Teachers page</div>
     <div class="card-body">
+    @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         <form action="{{ url('teachers')  }}" method="POST">
             {!! csrf_field() !!}
             <label>Name</label></br>
@@ -22,7 +31,8 @@
             <label>Batch Timings</label></br>
             <input type="datetime-local" name="batchtimings" id="batchtimings" class="form-control"></br>
             <label>Mobile</label></br>
-            <input type="text" name="mobile" id="mobile" maxlength="10"  title="Please enter exactly 10 digits" class="form-control"></br>
+            <input type="text" name="mobile" id="mobile" maxlength="10" title="Please enter exactly 10 digits"
+                class="form-control"></br>
             <input type="submit" value="save" class="btn btn-success"></br>
         </form>
     </div>

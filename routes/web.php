@@ -21,13 +21,10 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('index');
-});
-Route::get('/', function () {
-    return view('layout');
+    return view('homes/index');
 });
 
-Route::resource('/homes', HomeController::class);
+
 Route::resource('/students', StudentController::class);
 Route::resource('/teachers', TeacherController::class);
 Route::resource('/courses', CourseController::class);
